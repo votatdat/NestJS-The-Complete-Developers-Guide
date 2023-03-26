@@ -393,3 +393,5 @@ rabbitmq.env
 dist
 
 uploadedFiles
+
+*.sqlite

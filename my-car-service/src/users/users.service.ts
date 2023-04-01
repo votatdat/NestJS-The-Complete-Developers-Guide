@@ -15,7 +15,7 @@ export class UsersService {
   }
 
   findOne(id: number) {
-    return this.repo.findOne({ where: { id } });
+    return id ? this.repo.findOne({ where: { id } }) : null;
   }
 
   find(email: string) {

@@ -16,10 +16,10 @@ describe('Authentication System', () => {
   });
 
   it('handles a sign up request', () => {
-    const signUpEmail = 'test@test.com';
+    const signUpEmail = 'test2@test2.com';
     return request(app.getHttpServer())
       .post('/auth/signup')
-      .send({ email: signUpEmail, password: 'test' })
+      .send({ email: signUpEmail, password: 'test2' })
       .expect(201)
       .then((res) => {
         const { id, email } = res.body;
@@ -29,10 +29,10 @@ describe('Authentication System', () => {
   });
 
   it('sign up as a new user then get the currently logged in user', async () => {
-    const signUpEmail = 'test@test.com';
+    const signUpEmail = 'test3@test3.com';
     const res = await request(app.getHttpServer())
       .post('/auth/signup')
-      .send({ email: signUpEmail, password: 'test' })
+      .send({ email: signUpEmail, password: 'test3' })
       .expect(201);
 
     const cookie = res.get('Set-Cookie');

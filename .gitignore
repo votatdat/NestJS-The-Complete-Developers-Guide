@@ -389,6 +389,9 @@ Temporary Items
 # Local
 docker.env
 .env
+*.env
+env.*
+*.env.*
 rabbitmq.env
 dist
 

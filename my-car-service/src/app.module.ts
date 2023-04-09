@@ -17,22 +17,17 @@ import * as session from 'express-session';
       isGlobal: true,
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
-    // TypeOrmModule.forRootAsync({
-    //   inject: [ConfigService],
-    //   useFactory: (config: ConfigService) => {
-    //     return {
-    //       type: 'sqlite',
-    //       database: config.get<string>('DB_NAME'),
-    //       synchronize: true,
-    //       entities: [User, Report],
-    //     };
-    //   },
-    // }),
-    TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: process.env.NODE_ENV === 'test' ? 'test.sqlite' : 'db.sqlite',
-      entities: [User, Report],
-      synchronize: true,
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => {
+        return {
+          type: 'sqlite',
+          database: config.get<string>('DB_NAME'),
+          synchronize: true,
+          entities: [User, Report],
+        };
+      },
     }),
     UsersModule,
     ReportsModule,

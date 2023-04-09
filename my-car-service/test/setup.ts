@@ -3,6 +3,9 @@ import { join } from 'path';
 
 global.beforeEach(async () => {
   try {
-    await rm(join(__dirname, '..', 'test.sqlite'));
-  } catch (e) {}
+    const filename = join(__dirname, '..', 'test.sqlite');
+    await rm(filename);
+  } catch (err) {
+    console.error('ERROR', err);
+  }
 });

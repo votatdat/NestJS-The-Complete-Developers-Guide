@@ -12,8 +12,8 @@ POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-"email": "test@example.com",
-"password": "test"
+"email": "test2@example2.com",
+"password": "test2"
 }
 
 ### Find the current user

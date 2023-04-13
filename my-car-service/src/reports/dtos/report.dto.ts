@@ -1,11 +1,3 @@
-import {
-  IsLatitude,
-  IsLongitude,
-  IsNumber,
-  IsString,
-  Max,
-  Min,
-} from 'class-validator';
 import { Expose, Transform } from 'class-transformer';
 
 export class ReportDto {
@@ -32,6 +24,9 @@ export class ReportDto {
 
   @Expose()
   price: number;
+
+  @Expose()
+  approved: boolean;
 
   @Transform(({ obj }) => obj.user.id)
   @Expose()

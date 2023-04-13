@@ -1,4 +1,4 @@
-### Ceate a report
+### Create a report
 POST http://localhost:3000/reports
 Content-Type: application/json
 
@@ -11,3 +11,17 @@ Content-Type: application/json
   "lat": 0,
   "price": 50000
 }
+
+### Approve an existing report
+PATCH http://localhost:3000/reports/6
+Content-Type: application/json
+
+{
+  "approved": true
+}
+
+### Get an estimation for existing vehicle
+GET http://localhost:3000/reports?make=toyota&model=corolla&lng=0&lat=0&mileage=20000&year=1980
+
+
+
